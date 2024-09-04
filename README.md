@@ -1,21 +1,18 @@
-# debian-stretch-zfs-root
-Installs Debian GNU/Linux 9 Stretch to a native ZFS root filesystem using a [Debian Stretch Live CD](https://www.debian.org/CD/live/). The resulting system is a fully updateable debian system with no quirks or workarounds.
-
-_(For the brave at heart, there also is [Debian 10 Buster ZFS root](https://github.com/hn/debian-buster-zfs-root) beta available)_
+# debian-bookworm-zfs-root
+Installs Debian GNU/Linux 12 Bookworm to a native ZFS root filesystem using a [Debian Bookworm Live CD](https://www.debian.org/CD/live/). The resulting system is a fully updateable debian system with no quirks or workarounds.
 
 ## Usage
 
-1. Boot [Stretch Live CD](https://www.debian.org/CD/live/)
+1. Boot [Bookworm Live CD](https://www.debian.org/CD/live/)
 1. Login (user: `user`, password: `live`) and become root
 1. Setup network and export `http_proxy` environment variable (if needed)
-1. Run [this script](https://raw.githubusercontent.com/hn/debian-stretch-zfs-root/master/debian-stretch-zfs-root.sh)
+1. Run [this script](https://raw.githubusercontent.com/hn/debian-stretch-zfs-root/master/debian-bookworm-zfs-root.sh)
 1. User interface: Select disks and RAID level
 1. User interface: Decide if you want Legacy BIOS or EFI boot (only if your hardware supports EFI)
 1. Let the installer do the work
 1. User interface: install grub to *all* disks participating in the array (only if you're using Legacy BIOS boot)
 1. User interface: enter root password and select timezone
 1. Reboot
-1. Star [this repository](https://github.com/hn/debian-stretch-zfs-root) :)
 
 ## Fixes included
 
