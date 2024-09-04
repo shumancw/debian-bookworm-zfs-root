@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #
-# debian-stretch-zfs-root.sh V1.00
+# debian-book-zfs-root.sh V1.00
 #
 # Install Debian GNU/Linux 9 Stretch to a native ZFS root filesystem
 #
