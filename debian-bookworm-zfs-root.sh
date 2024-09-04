@@ -1,14 +1,10 @@
 #!/bin/bash -e
 #
-# debian-book-zfs-root.sh V1.00
+# debian-bookworm-zfs-root.sh V1.00
 #
-# Install Debian GNU/Linux 9 Stretch to a native ZFS root filesystem
+# Install Debian GNU/Linux 12 Bookworm to a native ZFS root filesystem
 #
-# (C) 2018 Hajo Noerenberg
-#
-#
-# http://www.noerenberg.de/
-# https://github.com/hn/debian-stretch-zfs-root
+# https://github.com/shumancw/debian-bookworm-zfs-root
 #
 #
 # This program is free software: you can redistribute it and/or modify
@@ -27,7 +23,7 @@
 ### Static settings
 
 ZPOOL=rpool
-TARGETDIST=stretch
+TARGETDIST=bookworm
 
 PARTBIOS=1
 PARTEFI=2
@@ -153,6 +149,11 @@ case $DEBRELEASE in
 	9*)
 		echo "deb http://deb.debian.org/debian/ stretch contrib non-free" >/etc/apt/sources.list.d/contrib-non-free.list
 		test -f /var/lib/apt/lists/deb.debian.org_debian_dists_stretch_non-free_binary-amd64_Packages || apt-get update
+		if [ ! -d /usr/share/doc/zfs-dkms ]; then NEED_PACKAGES+=(zfs-dkms); fi
+		;;
+  	10*)
+		echo "deb http://deb.debian.org/debian/ bookworm contrib non-free" >/etc/apt/sources.list.d/contrib-non-free.list
+		test -f /var/lib/apt/lists/deb.debian.org_debian_dists_bookworm_non-free_binary-amd64_Packages || apt-get update
 		if [ ! -d /usr/share/doc/zfs-dkms ]; then NEED_PACKAGES+=(zfs-dkms); fi
 		;;
 	*)
